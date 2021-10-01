@@ -101,6 +101,40 @@ public mutating func removeElement(_ member: Element) -> Element?
 allViews.removeElement(cancelButton)
 ```
 - using names based on roles, not types
+
+**Not Preferred**:
+```swift
+var string = "Hello"
+protocol ViewController {
+  associatedtype ViewType : View
+}
+class ProductionLine {
+  func restock(from widgetFactory: WidgetFactory)
+}
+```
+**Preferred**:
+```swift
+var greeting = "Hello"
+protocol ViewController {
+  associatedtype ContentView : View
+}
+class ProductionLine {
+  func restock(from supplier: WidgetFactory)
+}
+```
+- Prefer method and function names that make use sites form grammatical English phrases.
+**Preferred**:
+```swift
+x.insert(y, at: z)          “x, insert y at z”
+x.subViews(havingColor: y)  “x's subviews having color y”
+x.capitalizingNouns()       “x, capitalizing nouns”
+```
+**Not Preferred**:
+```swift
+x.insert(y, position: z)
+x.subViews(color: y)
+x.nounCapitalize()
+```
 - naming methods for their side effects
   - verb methods follow the -ed, -ing rule for the non-mutating version
   - noun methods follow the formX rule for the mutating version
