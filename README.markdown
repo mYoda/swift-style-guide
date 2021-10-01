@@ -72,11 +72,9 @@ Descriptive and consistent naming makes software easier to read and understand. 
 - prioritizing clarity over brevity
 - using `camelCase` (not `snake_case`)
 - using `UpperCamelCase` for types and protocols, `lowerCamelCase` for everything else
+- using `UpperCamelCase` for Folders in Project's structure or in Assets
 - including all needed words while omitting needless words
 - using names based on roles, not types
-- sometimes compensating for weak type information
-- striving for fluent usage
-- beginning factory methods with `make`
 - naming methods for their side effects
   - verb methods follow the -ed, -ing rule for the non-mutating version
   - noun methods follow the formX rule for the mutating version
