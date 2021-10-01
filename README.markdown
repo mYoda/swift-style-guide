@@ -72,8 +72,34 @@ Descriptive and consistent naming makes software easier to read and understand. 
 - prioritizing clarity over brevity
 - using `camelCase` (not `snake_case`)
 - using `UpperCamelCase` for types and protocols, `lowerCamelCase` for everything else
-- using `UpperCamelCase` for Folders in Project's structure or in Assets
+- using `UpperCamelCase` for Folders in Project's structure or for Folders in Assets
 - including all needed words while omitting needless words
+
+**Preferred**:
+```swift
+extension List {
+  public mutating func remove(at position: Index) -> Element
+}
+employees.remove(at: x)
+```
+**Not Preferred**:
+```swift
+employees.remove(x) // unclear: are we removing x?
+```
+
+**Preferred**:
+```swift
+public mutating func remove(_ member: Element) -> Element?
+
+allViews.remove(cancelButton) // clear
+```
+
+**Not Preferred**:
+```swift
+public mutating func removeElement(_ member: Element) -> Element?
+
+allViews.removeElement(cancelButton)
+```
 - using names based on roles, not types
 - naming methods for their side effects
   - verb methods follow the -ed, -ing rule for the non-mutating version
